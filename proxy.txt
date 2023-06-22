@@ -1,0 +1,428 @@
+--[[
+
+Decrypted By t.me/Yasugami
+Tools Made By t.me/Yasugami
+
+]]
+
+SendPacket(2, "action|input\n|text|/warn `cZefonee `0Proxy Activating") 
+proxylist = "\nadd_label_with_icon|big|`2Zefonee Proxy Gazzette |left|32|" .. 
+"\nadd_textbox|`0© Copyright :|left|2480|".. 
+"\nadd_textbox|`0This Script Collaboration of|left|2480|".. 
+"\nadd_textbox|`cZefonee#8466|left|2480|".. 
+"\nadd_textbox|`9Swe#9661|left|2480|".. 
+"\nadd_textbox|`9Alif GTPS|left|2480|".. 
+"\nadd_textbox|`9iCloud|left|2480|".. 
+"\nadd_textbox|`9Nubiza|left|2480|".. 
+"\nadd_textbox|`0Proxy Feature:|left|2480|".. 
+"\nadd_textbox|`0/proxy `c( Proxy Command )|left|2480|".. 
+"\nadd_textbox|`0/sosmed `c( Show Zefonee Sosmed ) |left|2480|".. 
+"\nadd_textbox|`0/depo `c( Show Zefonee Depo World ) |left|2489|".. 
+"\nadd_textbox|`0/wp `c( Warp to World )|left|2480|".. 
+"\nadd_textbox|`0/setname `c( Change Name ) |left|2480|".. 
+"\nadd_textbox|`0/finditem `c( Search ID Item )|left|2480|".. 
+"\nadd_textbox|`0/invis `c( Invisible Like Mods but Visual )|left|2480|".. 
+"\nadd_textbox|`0/noclip `c( To Be Like a Mods )|left|2480|".. 
+"\nadd_textbox|`0/nc off`c( `4OFF `cthe noclip )|left|2480|".. 
+"\nadd_textbox|`0/tp `c( Teleport Block to Block )|left|2480|".. 
+"\nadd_textbox|`0/tele off `c( `4OFF `cthe tp )|left|2480|".. 
+"\nadd_textbox|`0/wpull `c( Easier to Pull Someone )|left|2480|".. 
+"\nadd_textbox|`0/fw `c( Fast Roulette ) |left|2480|".. 
+"\nadd_textbox|`0/scan `c( Scanning Item in World )|left|2480|".. 
+"\nadd_textbox|`0/wban `c( Easier to Ban Someone )|left|2480|".. 
+"\nadd_textbox|`0/wkick`c( Easier to Kick Someone ) |left|2480|".. 
+"\nadd_textbox|`0/wd `c( `9WL `cDropping ) |left|2480|".. 
+"\nadd_textbox|`0/dd `c( `1DL `cDropping ) |left|2480|".. 
+"\nadd_textbox|`0/dw `c( `9WL `c& `1DL `cDropping ) |left|2480|".. 
+"\nadd_textbox|`0/bd `c( BGL Dropping ) |left|2489|".. 
+"\nadd_textbox|`0/hoster `c( For `6Hoster `cCustom Command ) |left|2480|".. 
+"\nadd_textbox|`0/flash `c( Speed Like a `9Flash `c) |left|2480|".. 
+"\nadd_textbox|`0/flash off `c( `4OFF `9Flash Speed`c ) |left|2480|".. 
+"\nadd_textbox|`0/handsuper `c( Use Wrench to Extract Item ) |left|2480|".. 
+"\nadd_textbox|`0/hand off `c( `4OFF `cHand Extract ) |left|2480|".. 
+"\nadd_textbox|`0/mod `c( Visual Be a Mods ) |left|2480|".. 
+"\nadd_textbox|`0/legend `c( Visual Legendary Title ) |left|2480|".. 
+"\nadd_textbox|`0/doctor `c( Visual Doctor Title ) |left|2480|".. 
+"\nadd_textbox|`0/l off `c( `4OFF `cLegend Title ) |left|2480|".. 
+"\nadd_textbox|`0/dr off `c( `4OFF `cDoctor Title ) |left|2480|".. 
+"\nadd_textbox|`0/bank `c( Show All Your Lock ) |left|2489|".. 
+"\nadd_textbox|`0/back `c( Back to Save World ) |left|2480|".. 
+"\nadd_textbox|`0/save `c( /save in Your Save World ) |left|2489|".. 
+"\nadd_quick_exit|".. 
+"\nend_dialog|end|Cancel|Okay|" 
+
+
+media = [[ 
+add_label_with_icon|big|`2Social Media |left|]] .. 32 .. [[| 
+add_textbox|`9Free 41+ Script in My Discord Server| 
+add_textbox|`9See My Showcase Script in My YouTube| 
+add_spacer|smal| 
+add_url_button||`cDiscord Server|NOFLAGS|https://discord.gg/rgABmKBzzZ|Open Link Discord Zefone Community?|0|0| 
+add_url_button||`4YouTube Channel|NOFLAGS|https://youtube.com/@zefonee|Open Link Youtube ZefoneeGT|0|0| 
+
+
+add_button||OK| 
+]] 
+
+deposit = [[ 
+add_label_with_icon|big|`2Deposit World |left|]] .. 32 .. [[| 
+add_textbox|Zefonee Depo World| 
+add_spacer|small| 
+add_textbox|ZEFKA| 
+add_spacer|small| 
+add_textbox|if You Want to Buy Premium, DM Zefonee#8466| 
+add_textbox|Premium for Now Only Cost 30WL| 
+add_spacer|small| 
+add_button||CANCEL| add_button||OK| 
+]] 
+
+
+
+---------------------------------------- 
+-----------PROGRAM------------- 
+------------------------------------------ 
+function ZEFONEE(sad) 
+if sad.v1:find("OnDialogRequest") then 
+if sad.v2:find("drop_item") then 
+return true 
+end 
+end 
+
+return false 
+end 
+function wl() 
+for _, v in pairs(GetInventory()) do 
+if v.id == 242 then 
+SendPacket(2, "action|drop\n|itemID|242"); 
+log("`2Succes Drop All `0"..v.amount.." `9World Lock From your bp") 
+SendPacket(2, "action|dialog_return\ndialog_name|drop_item\nitemID|242|\ncount|"..v.amount); 
+end 
+end 
+end 
+
+function dl() 
+for _, v in pairs(GetInventory()) do 
+if v.id == 1796 then 
+SendPacket(2, "action|drop\n|itemID|1796"); 
+log("`2Succes Drop All `0"..v.amount.." `1Diamond Lock from your bp") 
+SendPacket(2, "action|dialog_return\ndialog_name|drop_item\nitemID|1796|\ncount|"..v.amount); 
+end 
+end 
+end 
+
+function log(txt) 
+LogToConsole("`0[`cZefonee Proxy`0] "..txt) 
+end 
+
+
+
+
+
+
+function custom_command(type, packet) 
+clog = "action|input\n|text|" 
+
+
+------------------------------------------------------ 
+---------PROXY COMMAND------------------- 
+------------------------------------------------------ 
+
+if packet:find(clog .. "/proxy") then 
+var = {} 
+var.v0 = "OnDialogRequest" 
+var.v1 = proxylist 
+SendVariant (var); 
+log("Zefonee Proxy List") 
+return true 
+end 
+
+
+
+if packet:find(clog .. "/sosmed") then 
+var = {} 
+var.v0 = "OnDialogRequest" 
+var.v1 = media 
+SendVariant (var); 
+log("Social Media") 
+return true 
+end 
+
+
+if packet:find(clog .."/noclip") then 
+EditToggle("No Clip + Ghost", true) 
+var = {} 
+var.v0 = noclip 
+SendVariant (var); 
+log("No Clip `2( Active )") 
+return true 
+end 
+
+if packet:find(clog .."/tp") then 
+EditToggle("PathFinder", true) 
+var = {} 
+var.v0 = teleport 
+SendVariant (var); 
+log("Teleport `2( Active )") 
+return true 
+end 
+
+if packet:find(clog .."/tele off") then 
+EditToggle("PathFinder", false) 
+var = {} 
+var.v0 = teleport 
+SendVariant (var); 
+log("Teleport `4( Removed )") 
+return true 
+end 
+
+if packet:find(clog .."/nc off") then 
+EditToggle("No Clip + Ghost", false) 
+var = {} 
+var.v0 = noclip 
+SendVariant (var); 
+log("No Clip `4( Removed )") 
+return true 
+end 
+
+if packet:find(clog .."/invis") then 
+SendPacket(2, "action|input\n|text|/setinvis") 
+var = {} 
+var.v0 = invis 
+SendVariant (var); 
+log("Type /invis 2 Times Will OFF") 
+return true 
+end 
+
+if packet:find(clog .."/scan") then 
+SendPacket(2, "action|input\n|text|/gscan") 
+var = {} 
+var.v0 = gscan 
+SendVariant (var); 
+log("Scanning World `2( Active )") 
+return true 
+end 
+
+if packet:find(clog .."/wpull") then 
+SendPacket(2, "action|input\n|text|/wrench 1") 
+var = {} 
+var.v0 = invis 
+SendVariant (var); 
+log("Wrench Someone to Pull`2 ( Active )") 
+return true 
+end 
+
+if packet:find(clog .."/wkick") then 
+SendPacket(2, "action|input\n|text|/wrench 2") 
+var = {} 
+var.v0 = kick 
+SendVariant (var); 
+log("Wrench Someone to Kick `2( Active )") 
+return true 
+end 
+
+
+if packet:find(clog .."/wban") then 
+SendPacket(2, "action|input\n|text|/wrench 3") 
+var = {} 
+var.v0 = ban 
+SendVariant (var); 
+log("Wrench Someone to Ban`2 ( Active )") 
+return true 
+end 
+
+
+
+
+
+
+
+
+
+
+
+if packet:find(clog .. "/dw") then 
+wl() 
+dl() 
+return true 
+end 
+
+if packet:find(clog .. "/dd") then 
+txt = packet:gsub("action|input\n|text|/dd", "") 
+if txt == "" then 
+log("Write Amount") 
+else 
+SendPacket(2, "action|drop\n|itemID|1796") 
+SendPacket(2, "action|dialog_return\ndialog_name|drop_item\nitemID|1796|\ncount|"..txt) 
+log("`2Succes Drop`0"..txt.." `1Diamond Lock") 
+return true 
+end 
+end 
+
+if packet:find(clog .. "/wd") then 
+txt = packet:gsub("action|input\n|text|/wd", "") 
+if txt == "" then 
+log("Write Amount") 
+else 
+SendPacket(2, "action|drop\n|itemID|242") 
+SendPacket(2, "action|dialog_return\ndialog_name|drop_item\nitemID|242|\ncount|"..txt) 
+log("`2Succes Drop`0"..txt.." `9World Lock") 
+return true 
+end 
+end 
+
+if packet:find(clog .."/flash") then 
+EditToggle("Growz V3", true) 
+var = {} 
+var.v1 = speed 
+SendVariant (var); 
+log("Your Speed Will Like a Flash") 
+return true 
+end 
+
+if packet:find(clog .."/hoster") then 
+EditToggle("Fast Wheel", true) 
+EditToggle("Blink Color", true) 
+EditToggle("Show Last Spin", true) 
+var = {} 
+var.v1 = hoster 
+SendVariant (var); 
+log("Hoster Command Setup `2( Active )") 
+return true 
+end 
+
+
+
+
+
+
+if packet:find(clog .."/flash off") then 
+EditToggle("Growz V3", false) 
+var = {} 
+var.v1 = speed 
+SendVariant (var); 
+log("Flash Speed's `4( Removed )") 
+return true 
+end 
+
+if packet:find(clog .."/handsuper") then 
+EditToggle("Extractor Dynamo", true) 
+var = {} 
+var.v1 = super 
+SendVariant (var); 
+log("Hand Extract Super `2( Active ) ") 
+return true 
+end 
+
+if packet:find(clog .."/hand off") then 
+EditToggle("Extractor Dynamo", false) 
+var = {} 
+var.v1 = speed 
+SendVariant (var); 
+log("Hand Extract Super `4( Removed )") 
+return true 
+end 
+
+if packet:find(clog .. "/mod") then 
+m = GetLocal().name 
+SendPacket(2, "action|input\n|text|/warn `0[`2Visual `5@Moderator Mode`0]") 
+SendPacket(2, "action|input\n|text|/setname `#@"..m.."") 
+EditToggle("No Clip + Ghost", true); 
+end 
+
+if packet:find(clog .. "/spam") then 
+SendPacket(2, "action|input\n|text|".. spam .." ") 
+log("Spamming`2 ( Active )") 
+return true 
+end 
+
+if packet:find(clog .. "/doctor") then 
+b=GetLocal().name 
+SendPacket(2, "action|input\n|text|/setname `4Dr."..b.." ") 
+return true 
+end 
+
+if packet:find(clog .. "/legend") then 
+a=GetLocal().name 
+SendPacket(2, "action|input\n|text|/setname "..a.." of Legend") 
+EditToggle("Legendary Name", true) 
+return true 
+end 
+
+if packet:find(clog .. "/l off") then 
+u=GetLocal().name 
+SendPacket(2, "action|input\n|text|/setname "..u.."") 
+EditToggle("Legendary Name", false) 
+return true 
+end 
+
+if packet:find(clog .. "/dr off") then 
+j=GetLocal().name 
+SendPacket(2, "action|input\n|text|/setname "..j.."") 
+return true 
+end 
+
+
+
+if packet:find(clog .."/bank") then 
+function checkamount(id) 
+for _, inv in pairs(GetInventory()) do 
+if inv.id == id then 
+return inv.amount 
+end 
+end 
+return 0 
+end 
+log("Showing ur Lock") 
+LogToConsole("`0Your World Locks`0 : " .. checkamount(FindItemID("World Lock")) .. " `9World Lock`0,`1 " .. checkamount(FindItemID("Diamond Lock")) .. " `1Diamond Lock`0, `c" .. checkamount(FindItemID("Blue Gem Lock")) .. " `cBGL") 
+end 
+
+
+if packet:find(clog .."/save") then 
+saveworld = GetWorldName() 
+log("World Saved to `2"..saveworld) 
+return true 
+end 
+
+if packet:find(clog .."/back") then 
+log("Warping to `2"..saveworld) 
+SendPacket(3, "action|join_request\nname|"..saveworld.."\ninvitedWorld|0") 
+return true 
+end 
+
+if packet:find(clog .. "/bd") then 
+txt = packet:gsub("action|input\n|text|/bd", "") 
+if txt == "" then 
+log("Write Amount") 
+else 
+SendPacket(2, "action|drop\n|itemID|7188") 
+SendPacket(2, "action|dialog_return\ndialog_name|drop_item\nitemID|242|\ncount|"..txt) 
+log("`2Succes Drop`0"..txt.." `cBlue Gem Lock") 
+return true 
+end 
+end 
+
+if packet:find(clog .. "/depo") then 
+var = {} 
+var.v0 = "OnDialogRequest" 
+var.v1 = deposit 
+SendVariant (var); 
+log("Zefone Deposit World") 
+return true 
+end 
+
+-------------------------------------------------------------------- 
+-----------------END OFF COMMAND----------------- 
+--------------------------------------------------------------------- 
+return false 
+end 
+
+
+AddHook(Zefonee, "OnVariant") 
+AddHook(custom_command, "OnSendPacket") 
+log("Proxy Started, Type /proxy To See Zefonee Proxy Command") 
+log("Zefonee Proxy") 
+
+function omg(a) 
+LogToConsole("Type : "..a.type.."\nX : "..a.x.."\nY : "..a.y.."\nPunchX : "..a.px.."\nPunchY : "..a.py.."\nState : "..a.state.."\nValue : "..a.value.."\nNetID : "..a.netid) 
+return false 
+end
